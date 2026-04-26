@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="GIE Mina Agro - Vente de matériels agricoles, exportation de produits agricoles, achat/vente de biens au Sénégal et à l'international. Solution complète et fiable.">
+  <title>GIE Mina Agro | Agriculture & Commerce</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefef7;
+      color: #1e2f1c;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* typographie */
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      color: #1c3e1a;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #4b8b3b;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #2b5e24;
+    }
+
+    /* boutons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #3b7a2e;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #3b7a2e;
+      color: #2b5e24;
+    }
+
+    .btn-outline:hover {
+      background: #3b7a2e;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #265e1f;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -12px rgba(0,0,0,0.2);
+    }
+
+    /* navigation */
+    .navbar {
+      background: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(0);
+      border-bottom: 1px solid #e9f0e5;
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #2b7322;
+    }
+    .logo i {
+      color: #4caf50;
+      margin-right: 6px;
+    }
+    .logo span {
+      color: #1e3a1a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d3e2a;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #3b7a2e;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(105deg, #f3fae8 0%, #ffffff 100%);
+      padding: 70px 0 80px;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      background: #e9f3e4;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2b7322;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3a5536;
+      margin: 20px 0 30px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      font-weight: 600;
+    }
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #2b7322;
+    }
+    .hero-image {
+      flex: 0.9;
+      background: #e3f0db;
+      border-radius: 32px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.05);
+    }
+    .hero-image i {
+      font-size: 10rem;
+      color: #4caf50;
+      opacity: 0.8;
+    }
+
+    /* sections génériques */
+    section {
+      padding: 70px 0;
+    }
+    .bg-light {
+      background-color: #f8faf5;
+    }
+
+    /* cartes services */
+    .services-grid, .materials-grid, .export-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .service-card, .product-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e7f0e2;
+    }
+    .service-card:hover, .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(60, 100, 30, 0.12);
+      border-color: #cde2c2;
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      color: #3b7a2e;
+      margin-bottom: 20px;
+    }
+    .service-card h3, .product-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .service-card p, .product-card p {
+      color: #4d5e48;
+    }
+
+    /* cartes matériels et produits export (image placeholder) */
+    .product-card .img-placeholder {
+      background: #eef5ea;
+      border-radius: 20px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 3rem;
+      color: #2e7d32;
+    }
+    .product-card .img-placeholder span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 40px;
+      color: #2e5e1e;
+    }
+
+    /* section spec commerce */
+    .trade-highlight {
+      background: linear-gradient(120deg, #eef6e9, #ffffff);
+      border-radius: 48px;
+      padding: 48px 36px;
+      margin: 20px 0 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .trade-text {
+      flex: 1.6;
+    }
+    .trade-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .trade-badge {
+      background: #3b7a2e20;
+      border-radius: 60px;
+      padding: 4px 16px;
+      display: inline-block;
+      font-weight: 600;
+      color: #265e1f;
+      margin-bottom: 14px;
+    }
+    .trade-icon {
+      flex: 0.4;
+      text-align: center;
+      font-size: 5rem;
+      color: #3b7a2e;
+    }
+
+    /* pourquoi nous */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
+    }
+    .why-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .why-item i {
+      font-size: 2.4rem;
+      background: #eef5ea;
+      padding: 20px;
+      border-radius: 60px;
+      color: #2b7322;
+      margin-bottom: 20px;
+    }
+
+    /* contact */
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: white;
+      border-radius: 40px;
+      padding: 40px;
+      box-shadow: 0 15px 35px -12px rgba(0,0,0,0.05);
+      border: 1px solid #e2ecd9;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info h3 {
+      margin-bottom: 24px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 24px;
+    }
+    .contact-detail i {
+      width: 44px;
+      height: 44px;
+      background: #eff7ea;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      color: #3b7a2e;
+      font-size: 1.3rem;
+    }
+    .contact-form {
+      flex: 1.2;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #d9e3d3;
+      border-radius: 32px;
+      font-family: inherit;
+      background: #fefefa;
+      transition: 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 0 3px rgba(76,175,80,0.1);
+    }
+    button[type="submit"] {
+      background: #2b7322;
+      width: 100%;
+      justify-content: center;
+    }
+
+    footer {
+      background: #192a16;
+      color: #d2e6ca;
+      padding: 40px 0 20px;
+    }
+    .footer-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-col h4 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    .footer-col p, .footer-col a {
+      color: #c2dcb8;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+    .social-links a {
+      margin-right: 18px;
+      font-size: 1.4rem;
+      color: #c2dcb8;
+    }
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #2d4328;
+      padding-top: 25px;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 780px) {
+      .nav-flex {
+        flex-direction: column;
+      }
+      .hero-grid {
+        flex-direction: column;
+      }
+      .trade-highlight {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-wrapper {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <div class="logo">
+        <i class="fas fa-seedling"></i> <span>GIE Mina Agro</span>
+      </div>
+      <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#materiels">Matériels</a>
+        <a href="#export">Export</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero / Accueil -->
+    <section id="accueil" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fas fa-map-marker-alt"></i> Sénégal · International</div>
+          <h1>Solutions agricoles <br>complètes & commerce global</h1>
+          <p>Vente de matériels agricoles, exportation de produits de qualité, achat et vente de biens au Sénégal et à l'international. <strong>Mina Agro</strong> : votre partenaire de confiance.</p>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-number">+1200</span> <span>Clients satisfaits</span></div>
+            <div class="stat"><span class="stat-number">15+</span> <span>Pays partenaires</span></div>
+            <div class="stat"><span class="stat-number">24/7</span> <span>Support commercial</span></div>
+          </div>
+          <div style="margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="#services" class="btn">Nos services <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Demander un devis</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <i class="fas fa-tractor"></i>
+          <p style="margin-top: 12px; font-weight: 500;">Agriculture moderne & export</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services principaux -->
+    <section id="services">
+      <div class="container">
+        <h2>Nos services clés</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-tractor"></i></div>
+            <h3>Vente de matériels agricoles</h3>
+            <p>Tracteurs, moissonneuses, semoirs, irrigation : équipements neufs & d'occasion. Livraison sur tout le Sénégal.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-shipping-fast"></i></div>
+            <h3>Exportation de produits agricoles</h3>
+            <p>Arachide, maïs, mil, sésame, fruits exotiques — nous exportons vers l'Europe, Asie et Afrique.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-handshake"></i></div>
+            <h3>Achat / vente nationale</h3>
+            <p>Commerce local au Sénégal : céréales, intrants, bétail, légumes. Accès direct aux producteurs locaux.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-globe-africa"></i></div>
+            <h3>Commerce international</h3>
+            <p>Achat et vente de biens agricoles à l'étranger, import/export, sourcing fiable et logistique intégrée.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Matériels agricoles en vedette -->
+    <section id="materiels" class="bg-light">
+      <div class="container">
+        <h2>Matériels agricoles disponibles</h2>
+        <div class="materials-grid">
+          <div class="product-card">
+            <div class="img-placeholder"><i class="fas fa-tractor" style="font-size: 3rem;"></i><span>Tracteur</span></div>
+            <h3>Tracteurs agricoles</h3>
+            <p>Marques fiables (New Holland, Massey Ferguson) - Puissance 75 à 200 CV. Financement possible.</p>
+          </div>
+          <div class="product-card">
+            <div class="img-placeholder"><i class="fas fa-oil-can" style="font-size: 3rem;"></i><span>Irrigation</span></div>
+            <h3>Systèmes d'irrigation</h3>
+            <p>Goutte-à-goutte, rampes pivotantes, pompes solaires. Optimisez vos rendements.</p>
+          </div>
+          <div class="product-card">
+            <div class="img-placeholder"><i class="fas fa-seedling" style="font-size: 3rem;"></i><span>Semoirs</span></div>
+            <h3>Semoirs & moissonneuses</h3>
+            <p>Précision et efficacité pour grandes cultures. Conseils techniques personnalisés.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits d'exportation -->
+    <section id="export">
+      <div class="container">
+        <h2>Produits à l'exportation</h2>
+        <div class="export-grid">
+          <div class="product-card">
+            <div class="img-placeholder"><i class="fas fa-pepper-hot"></i><span>Arachide Sénégal</span></div>
+            <h3>Arachide de qualité</h3>
+            <p>Huile, graines, amandes : premium pour marchés internationaux, traçabilité garantie.</p>
+          </div>
+          <div class="product-card">
+            <div class="img-placeholder"><i class="fas fa-wheat-alt"></i><span>Mil & Maïs</span></div>
+            <h3>Céréales locales</h3>
+            <p>Maïs blanc, mil sénégalais, sorgho — export vrac ou conditionné. Demande d'échantillon.</p>
+          </div>
+          <div class="product-card">
+            <div class="img-placeholder"><i class="fas fa-apple-alt"></i><span>Fruits exotiques</span></div>
+            <h3>Mangue, bissap & gombo</h3>
+            <p>Produits transformés ou frais — certification en cours pour l'export agroalimentaire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Achat / Vente : national & international -->
+    <section class="bg-light">
+      <div class="container">
+        <div class="trade-highlight">
+          <div class="trade-text">
+            <div class="trade-badge"><i class="fas fa-exchange-alt"></i> Sénégal ↔ Monde</div>
+            <h3>Achat & vente de biens <br>au niveau national et extérieur</h3>
+            <p>Nous facilitons les transactions commerciales tant sur le marché sénégalais qu'à l'international. Que vous cherchiez à <strong>vendre vos récoltes</strong> à l'étranger, à <strong>acheter des intrants</strong> pour l'agriculture, ou à échanger des marchandises (céréales, matériels, produits transformés) avec l'Afrique, l'Europe ou l'Asie, Mina Agro vous accompagne grâce à son réseau de partenaires.</p>
+            <a href="#contact" style="margin-top: 20px; display: inline-block;" class="btn">Collaborer avec nous</a>
+          </div>
+          <div class="trade-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pourquoi Mina Agro -->
+    <section>
+      <div class="container">
+        <h2>Pourquoi choisir Mina Agro ?</h2>
+        <div class="why-grid">
+          <div class="why-item"><i class="fas fa-check-circle"></i><h4>Fiabilité</h4><p>Plus de 10 ans d'expérience au Sénégal et en zone UEMOA.</p></div>
+          <div class="why-item"><i class="fas fa-truck-fast"></i><h4>Logistique intégrée</h4><p>Livraison Dakar, régions et ports pour export.</p></div>
+          <div class="why-item"><i class="fas fa-chart-line"></i><h4>Accompagnement</h4><p>Conseil technique, financement adapté, sourcing international.</p></div>
+          <div class="why-item"><i class="fas fa-leaf"></i><h4>Agriculture durable</h4><p>Engagement pour des pratiques responsables.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-light">
+      <div class="container">
+        <h2>Parlons de vos besoins</h2>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h3><i class="fas fa-address-card"></i> Contactez-nous</h3>
+            <div class="contact-detail"><i class="fas fa-map-pin"></i> <span>DAKAR Fass Paillote Imeuble 63</span></div>
+            <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+221 776157595 | +79040989163</span></div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i> <span>contact@minagro.sn</span></div>
+            <div class="contact-detail"><i class="fas fa-clock"></i> <span>Lun – Sam : 8h – 18h</span></div>
+            <div class="social-links" style="margin-top: 30px;">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="demandeForm" action="#" method="post">
+              <div class="form-group">
+                <input type="text" id="nom" placeholder="Nom complet *" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Adresse email *" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="tel" placeholder="Téléphone">
+              </div>
+              <div class="form-group">
+                <textarea rows="4" id="message" placeholder="Votre message (matériel souhaité, produit à exporter, demande d'achat/vente...)"></textarea>
+              </div>
+              <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
+              <p style="font-size: 0.75rem; margin-top: 12px; color:#5b6b55;">Nous vous répondrons sous 24h ouvrables.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-flex">
+        <div class="footer-col">
+          <h4><i class="fas fa-seedling"></i> GIE Mina Agro</h4>
+          <p>Leader en vente de matériels, export agricole et commerce biens (Sénégal & international). Votre réussite, notre mission.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liens rapides</h4>
+          <p><a href="#accueil" style="color:#c2dcb8;">Accueil</a><br>
+          <a href="#services" style="color:#c2dcb8;">Services</a><br>
+          <a href="#materiels" style="color:#c2dcb8;">Matériels</a><br>
+          <a href="#contact" style="color:#c2dcb8;">Contact</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Nos engagements</h4>
+          <p>Qualité, transparence, développement rural<br> 🇸🇳 Export responsable</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 GIE Mina Agro – Tous droits réservés. Solutions agricoles & commerce sans frontières.
+        site conçu par Idrissa DIOLO</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // formulaire simple : simulation d'envoi avec feedback (pas de backend réel)
+    const form = document.getElementById('demandeForm');
+    if(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nom = document.getElementById('nom')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
+        if(!nom || !email) {
+          alert("Veuillez renseigner votre nom et email.");
+          return;
+        }
+        alert(`Merci ${nom}, votre message a bien été envoyé. Un conseiller Mina Agro vous contactera rapidement concernant vos besoins (matériel/export/commerce).`);
+        form.reset();
+      });
+    }
+
+    // Smooth scroll pour ancres
+    document.querySelectorAll('.nav-links a, .btn[href^="#"], .footer-col a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if(href && href !== '#' && href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          if(targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
